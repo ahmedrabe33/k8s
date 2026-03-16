@@ -1,0 +1,28 @@
+NAME        TYPE     DATA   AGE
+db-secret   Opaque   3      2m34s
+Name:         db-secret
+Namespace:    default
+Labels:       <none>
+Annotations:  <none>
+
+Type:  Opaque
+
+Data
+====
+DB-NAME:      5 bytes
+DB-PASSWORD:  11 bytes
+DB-USER:      5 bytes
+apiVersion: v1
+data:
+  DB-NAME: bXlhcHA=
+  DB-PASSWORD: cGFzc3dvcmQxMjM=
+  DB-USER: YWRtaW4=
+kind: Secret
+metadata:
+  creationTimestamp: "2026-03-16T07:25:45Z"
+  name: db-secret
+  namespace: default
+  resourceVersion: "7037"
+  uid: 690f733e-5111-4e13-91a4-c70d7232a1bc
+type: Opaque
+admin

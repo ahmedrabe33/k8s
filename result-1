@@ -1,0 +1,44 @@
+NAME               DATA   AGE
+cm-1               4      12h
+kube-root-ca.crt   1      13h
+Name:         cm-1
+Namespace:    default
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+APP_COLOR:
+----
+blue
+
+APP_ENV:
+----
+production
+
+APP_PORT:
+----
+8080
+
+MAX_CONNECTIONS:
+----
+100
+
+
+BinaryData
+====
+
+Events:  <none>
+apiVersion: v1
+data:
+  APP_COLOR: blue
+  APP_ENV: production
+  APP_PORT: "8080"
+  MAX_CONNECTIONS: "100"
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-03-15T18:53:31Z"
+  name: cm-1
+  namespace: default
+  resourceVersion: "3081"
+  uid: 41fe65d8-60ad-4db7-90b9-54669c45df81

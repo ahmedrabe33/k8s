@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db-pod
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sh","-c"]
+      args:
+        - 'echo "USER=${DB-USER}" ; echo "DB=${DB-NAME}" ; sleep 3600'
+      envFrom:
+        - secretRef:
+            name: db-secret

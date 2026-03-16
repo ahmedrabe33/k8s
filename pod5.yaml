@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fullapp-pod
+spec: 
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sh","-c"]
+      args:
+          - 'echo "ConfigMap values:" ; echo "APP_ENV=$APP_ENV" ; echo "APP_PORT=$APP_PORT" ; echo "APP_COLOR=$APP_COLOR" ; echo "MAX_CONNECTIONS=$MAX_CONNECTIONS" ; echo "Secret values:" ; echo "DB_USER=${DB-USER}" ; echo "DB_NAME=${DB-NAME}" ; echo "DB_PASSWORD=${DB-PASSWORD}" ; sleep 3600'
+      envFrom:
+        - configMapRef:
+              name: cm-1
+        - secretRef:
+              name: db-secret    

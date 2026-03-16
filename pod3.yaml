@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: selective-pod2 
+spec: 
+  containers:
+    - name: busybox
+      image: busybox
+      command: ["sh","-c"]
+      args:
+        - echo " color=$COLOR"; echo "port=$PORT"; sleep 3600
+      env:
+        - name: COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: cm-1
+              key: APP_COLOR
+        - name: PORT
+          valueFrom: 
+            configMapKeyRef:
+              name: cm-1
+              key: APP_PORT      
+          

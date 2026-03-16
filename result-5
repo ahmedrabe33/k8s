@@ -1,0 +1,64 @@
+USER=USER
+DB=NAME
+DB-NAME=myapp
+DB-PASSWORD=password123
+DB-USER=admin
+Name:             db-pod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 16 Mar 2026 09:48:49 +0200
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.13
+IPs:
+  IP:  10.244.0.13
+Containers:
+  busybox:
+    Container ID:  docker://02b5803377c4f9b30f978fd8a2b6ca6a302c22c56167ec5c089596e6714d34fb
+    Image:         busybox
+    Image ID:      docker-pullable://busybox@sha256:b3255e7dfbcd10cb367af0d409747d511aeb66dfac98cf30e97e87e4207dd76f
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+    Args:
+      echo "USER=${DB-USER}" ; echo "DB=${DB-NAME}" ; sleep 3600
+    State:          Running
+      Started:      Mon, 16 Mar 2026 09:48:52 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment Variables from:
+      db-secret   Secret  Optional: false
+    Environment:  <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zdjkc (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-zdjkc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  104s  default-scheduler  Successfully assigned default/db-pod to minikube
+  Normal  Pulling    103s  kubelet            spec.containers{busybox}: Pulling image "busybox"
+  Normal  Pulled     101s  kubelet            spec.containers{busybox}: Successfully pulled image "busybox" in 1.798s (1.798s including waiting). Image size: 4425286 bytes.
+  Normal  Created    101s  kubelet            spec.containers{busybox}: Created container: busybox
+  Normal  Started    101s  kubelet            spec.containers{busybox}: Started container busybox

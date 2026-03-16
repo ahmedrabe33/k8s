@@ -1,0 +1,68 @@
+NAME                                 READY   STATUS    RESTARTS   AGE
+webapp-configured-775ccd8997-2rs5j   1/1     Running   0          4m32s
+webapp-configured-775ccd8997-446s9   1/1     Running   0          4m32s
+webapp-configured-775ccd8997-8pjrd   1/1     Running   0          4m32s
+APP_ENV=production
+DB_USER=admin
+Name:             webapp-configured-775ccd8997-2rs5j
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Mon, 16 Mar 2026 10:18:20 +0200
+Labels:           app=webapp-configured
+                  pod-template-hash=775ccd8997
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.23
+IPs:
+  IP:           10.244.0.23
+Controlled By:  ReplicaSet/webapp-configured-775ccd8997
+Containers:
+  webapp:
+    Container ID:  docker://4a5defbf4c5cdb91c1c950f0a73fbc14c006685bfca33c4b3aea26418a325f73
+    Image:         busybox
+    Image ID:      docker-pullable://busybox@sha256:b3255e7dfbcd10cb367af0d409747d511aeb66dfac98cf30e97e87e4207dd76f
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sh
+      -c
+    Args:
+      echo "APP_ENV=$APP_ENV" ; echo "DB_USER=$DB_USER" ; echo "DB_PASSWORD=$DB_PASSWORD" ; sleep 3600
+    State:          Running
+      Started:      Mon, 16 Mar 2026 10:18:25 +0200
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      APP_ENV:      <set to the key 'APP_ENV' of config map 'cm-1'>       Optional: false
+      DB_USER:      <set to the key 'DB-USER' in secret 'db-secret'>      Optional: false
+      DB_PASSWORD:  <set to the key 'DB-PASSWORD' in secret 'db-secret'>  Optional: false
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-frw66 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-frw66:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m21s  default-scheduler  Successfully assigned default/webapp-configured-775ccd8997-2rs5j to minikube
+  Normal  Pulling    6m21s  kubelet            spec.containers{webapp}: Pulling image "busybox"
+  Normal  Pulled     6m16s  kubelet            spec.containers{webapp}: Successfully pulled image "busybox" in 2.15s (4.994s including waiting). Image size: 4425286 bytes.
+  Normal  Created    6m16s  kubelet            spec.containers{webapp}: Created container: webapp
+  Normal  Started    6m16s  kubelet            spec.containers{webapp}: Started container webapp
